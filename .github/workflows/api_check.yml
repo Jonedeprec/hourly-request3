@@ -1,14 +1,14 @@
 name: Warehouse API Check
 on:
   schedule:
-    - cron: '0 * * * *'  # Каждый час в 00 минут
-  workflow_dispatch:      # Для ручного запуска
+    - cron: '0 * * * *'  # Каждый час
+  workflow_dispatch:     # Для ручного запуска
 
 jobs:
   api-request:
     runs-on: ubuntu-latest
     steps:
-      - name: Send GET request
+      - name: Get warehouses
         run: |
           curl -X GET \
             'https://9497d276-9286-4e8e-9d91-9b1b08ef6df1.serverhub.praktikum-services.ru/api/v1/warehouses' \
